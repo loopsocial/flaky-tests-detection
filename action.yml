@@ -4,6 +4,9 @@ inputs:
   args:
     description: "args for check_flakes.py"
     required: true
+outputs:
+  report:
+    description: 'flake tests report'
 runs:
   using: "docker"
   image: "Dockerfile"
