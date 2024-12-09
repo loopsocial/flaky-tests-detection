@@ -226,7 +226,7 @@ def main():
     Also generate seaborn heatmaps visualizing the results if wanted.
     """
 
-    logging.basicConfig(format="%(message)s", level=logging.INFO)
+    logging.basicConfig(stream=sys.stdout, format="%(message)s", level=logging.INFO)
 
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group(required=True)
@@ -276,7 +276,6 @@ def main():
 
     top_flip_rates = get_top_fliprates(fliprate_table, args.top_n, precision)
 
-    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
     if not top_flip_rates:
         logging.info("No flaky tests.")
         return
