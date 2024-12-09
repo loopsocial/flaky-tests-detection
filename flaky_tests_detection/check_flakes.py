@@ -3,6 +3,7 @@ import logging
 from decimal import getcontext, Decimal, ROUND_UP
 from pathlib import Path
 from typing import Dict, Set
+import sys
 
 from junitparser import JUnitXml, TestSuite
 import pandas as pd
@@ -275,6 +276,7 @@ def main():
 
     top_flip_rates = get_top_fliprates(fliprate_table, args.top_n, precision)
 
+    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
     if not top_flip_rates:
         logging.info("No flaky tests.")
         return
